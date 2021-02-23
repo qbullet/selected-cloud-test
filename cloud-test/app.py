@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,6 +9,9 @@ def Home():
 def AboutUs():
   return render_template('about-us.html')  
 
+@app.route('/product')
+def GetProduct():
+  return jsonify(productName = 'test product')
 
 if __name__ == '__main__':
   app.debug = True
